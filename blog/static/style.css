@@ -1,0 +1,32 @@
+
+body{
+    padding: 20px 100px;
+    background-color: #E5E8ED;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card{
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+img{
+    width: 100%;
+}
+
+.detail_img{
+    width: 500px;
+    height: 500px;
+    /* object-fit: cover; */
+}
+
+.tag{
+    padding: 2px 4px;
+    background-color: greenyellow;
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h1>{{blog_title}}</h1>
+   <section class="grid">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="card">
+                    <img src="{{ post.img_url }}" alt="">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content | truncatechars:50 }}</p>
+                    <p class="tag">[{{ post.category }}]</p>
+                    {% comment %} <a href="post/{{post.id}}">Read More</a> {% endcomment %}
+                    {% comment %} <a href="{% url "blog:detail" post_id=post.id %}">Read More</a> {% endcomment %}
+                    <a href="{% url "blog:detail" slug=post.slug %}">Read More</a>
+                </div>
+        {% endfor %}
+        {% else %}
+                <p>No posts available</p>
+
+        {% endif %} 
+   </section>
+
+    
+{% endblock %}
+  
