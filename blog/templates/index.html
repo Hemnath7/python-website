@@ -3,26 +3,68 @@
 
 
 {% block content %}
-    <h1>{{blog_title}}</h1>
-   <section class="grid">
+!
+<header>
+    <h1 class="logo">H</h1>
+    <div class="nav-links">
+        <a href="">Writings</a>
+        <a href="">Contact</a>
+    </div>
+</header>
+
+<section class="hero-container">
+    <div class="hero-card">
+        <h1 class="title">Hemnath</h1>
+        <h3>Designer * Maker * Mentor</h3>
+    </div>
+    <p class="hero-para">It's the excitement of learning, making or mastering something new. With every sunrise, I
+        embark on a voyage of discovery, Exploring the vast seas of knowledge, Crafting new wonders with eager hands. Is
+        this insatiable curiosity a curse or a gift? I ponder, as I delve deeper into the mysteries of existence, But in
+        its embrace, I discover the very essence of what it means to be alive.</p>
+</section>
+<section class="container">
+    <h2 class="heading">Writings</h2>
+    <div class="grid-3">
         {% if posts %}
-            {% for post in posts %}
-                <div class="card">
-                    <img src="{{ post.img_url }}" alt="">
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content | truncatechars:50 }}</p>
-                    <p class="tag">[{{ post.category }}]</p>
-                    {% comment %} <a href="post/{{post.id}}">Read More</a> {% endcomment %}
-                    {% comment %} <a href="{% url "blog:detail" post_id=post.id %}">Read More</a> {% endcomment %}
-                    <a href="{% url "blog:detail" slug=post.slug %}">Read More</a>
-                </div>
+        {% for post in posts %}
+        <div class="card">
+            <img src="{{ post.img_url }}" alt="">
+            <h3>Faking things vs Making things</h3>
+            <p>It's the excitement of learning, making or mastering something new. With every sunrise...</p>
+            <a href="{% url " blog:detail" slug=post.slug %}">Read More</a>
+        </div>
         {% endfor %}
         {% else %}
-                <p>No posts available</p>
-
-        {% endif %} 
-   </section>
-
+        <p>No posts available</p>
     
-{% endblock %}
+        {% endif %}
   
+    </div>
+</section>
+<footer class="nav-links">
+    <a href="">Twitter</a>
+    <a href="">Insta</a>
+    <a href="">Email</a>
+</footer>
+<h1>{{blog_title}}</h1>
+<section class="grid">
+    {% if posts %}
+    {% for post in posts %}
+    <div class="card">
+        <img src="{{ post.img_url }}" alt="">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content | truncatechars:50 }}</p>
+        <p class="tag">[{{ post.category }}]</p>
+        {% comment %} <a href="post/{{post.id}}">Read More</a> {% endcomment %}
+        {% comment %} <a href="{% url " blog:detail" post_id=post.id %}">Read More</a> {% endcomment %}
+        <a href="{% url " blog:detail" slug=post.slug %}">Read More</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No posts available</p>
+
+    {% endif %}
+</section>
+
+
+{% endblock %}
